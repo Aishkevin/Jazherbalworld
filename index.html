@@ -173,6 +173,13 @@ footer b{display:block;color:var(--gold);font-size:11px;letter-spacing:.3em;text
 .w{border-top:0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:46px 48px}
 .w:nth-child(3n){border-right:0}.w small{font-style:italic;font-size:1.1rem}
 @media(max-width:900px){.why{grid-template-columns:1fr}.w{border-right:0;padding:34px 8px}}
+
+.dust i{box-shadow:0 0 12px 2px rgba(196,164,104,.8);animation-name:drift;animation-iteration-count:infinite}
+.dust i.cr{background:var(--gold-soft);box-shadow:0 0 16px 3px rgba(227,207,160,.9)}
+.dust b{position:absolute;border-radius:50%;background:#fff6dc;box-shadow:0 0 10px 2px rgba(255,236,180,.85);opacity:0;animation:twinkle ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1.25)}}
+.w:nth-child(3n){border-right:0}.w:nth-child(3){border-left:1px solid var(--line)}.w:nth-child(4){border-right:1px solid var(--line)}.w:nth-child(5){border-right:0}
+.w:nth-child(1),.w:nth-child(2){border-right:0}
 @keyframes float-slow{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(.6deg)}}
 @keyframes drift{0%{transform:translate3d(0,0,0);opacity:0}15%{opacity:.9}100%{transform:translate3d(30px,-220px,0);opacity:0}}
 @keyframes sway{0%,100%{transform:rotate(calc(var(--rot,0deg) - 2deg))}50%{transform:rotate(calc(var(--rot,0deg) + 3deg))}}
@@ -326,7 +333,8 @@ lk.onclick=function(){lk.classList.remove('open')};
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%4)*.08+'s';io.observe(el)});
 /* dust particles */
-(function(){var d=$('dust');for(var i=0;i<16;i++){var s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.animationDuration=(9+Math.random()*9)+'s';s.style.animationDelay=(-Math.random()*14)+'s';var z=2+Math.random()*3;s.style.width=s.style.height=z+'px';d.appendChild(s)}})();
+(function(){var d=$('dust');for(var i=0;i<70;i++){var s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.animationDuration=(8+Math.random()*12)+'s';s.style.animationDelay=(-Math.random()*20)+'s';var z=2+Math.random()*5;s.style.width=s.style.height=z+'px';if(Math.random()>.7)s.className='cr';d.appendChild(s)}
+for(var j=0;j<60;j++){var t=document.createElement('b');t.style.left=Math.random()*100+'%';t.style.top=Math.random()*100+'%';var q=1.5+Math.random()*3.5;t.style.width=t.style.height=q+'px';t.style.animationDuration=(2+Math.random()*4)+'s';t.style.animationDelay=(-Math.random()*6)+'s';d.appendChild(t)}})();
 /* hero pointer reveal (same logic as original hook) */
 (function(){var root=$('home'),rev=$('rev'),glow=$('glow');
 function rect(){return root.getBoundingClientRect()}
