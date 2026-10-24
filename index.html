@@ -140,9 +140,42 @@ footer{background:var(--forest);padding:64px 0 90px;color:var(--mute);font-size:
 footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px}
 footer b{display:block;color:var(--gold);font-size:11px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:12px}
 .fab{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--wa);color:#04210f;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font:700 13px var(--font-body);box-shadow:0 8px 24px rgba(0,0,0,.45)}
+
+.logo span{font-style:italic;font-weight:400}
+.logo b{display:block;font:600 13px/1.25 var(--font-body);letter-spacing:.3em}
+.logo small{display:block;font-size:10px;letter-spacing:.3em;font-weight:500;color:rgba(253,252,246,.7)}
+.links{font-size:15px;letter-spacing:0;text-transform:none;gap:32px}
+.links a{position:relative;padding:6px 0}.links a.act{color:var(--cream)}
+.links a.act:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold)}
+.ln:before{content:"";display:inline-block;width:48px;height:1px;background:var(--gold);vertical-align:middle;margin-right:18px}
+.hero h1{font-size:clamp(3.2rem,8vw,6.4rem);font-weight:400;margin:26px 0 30px}
+.hero .lead{max-width:34rem}
+.cta-row{margin-top:40px}
+.stats{margin-top:56px;padding-top:28px;border-top:1px solid rgba(253,252,246,.14);gap:56px}
+.stats strong{font-size:2.3rem}.stats span{color:rgba(253,252,246,.55)}
+.leaf{pointer-events:none}
+.bot-sec{position:relative;overflow:hidden}
+.bot{position:relative;max-width:1400px;margin:auto;height:clamp(900px,105vh,1100px)}
+.bigleaf{position:absolute;left:50%;top:50%;width:300px;height:480px;transform:translate(-50%,-50%);color:rgba(31,64,51,.45);pointer-events:none}
+.bc{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);text-align:center;width:min(660px,62%);z-index:2}
+.bc .lead{margin:24px auto 0;max-width:26rem}
+.bi{position:absolute;width:300px;margin-left:-150px;text-align:center;cursor:pointer;z-index:3;animation:float-slow 7s ease-in-out infinite}
+.ic{display:grid;place-items:center;width:120px;height:120px;margin:auto;border-radius:50%;background:#1E3F32;border:1px solid rgba(196,164,104,0);color:var(--gold);transition:.5s}
+.icn{width:34px;height:34px}
+.bi:hover .ic,.bi:focus .ic{border-color:var(--gold);background:#24493A;transform:scale(1.08);box-shadow:0 0 40px rgba(196,164,104,.25)}
+.bi h3{font:400 1.9rem/1.1 var(--font-display);margin-top:18px}
+.bi p{position:absolute;left:50%;top:100%;width:250px;transform:translate(-50%,6px);margin-top:8px;padding:10px 14px;background:rgba(10,26,20,.92);border:1px solid var(--line);border-radius:12px;color:var(--mute);font-size:14px;line-height:1.5;opacity:0;pointer-events:none;transition:.4s}
+.bi:hover p,.bi:focus p{opacity:1;transform:translate(-50%,0)}
+@media(max-width:860px){.bot{height:auto;padding:90px 20px;display:grid;grid-template-columns:1fr 1fr;gap:34px 12px}.bc{position:static;transform:none;width:auto;grid-column:1/-1;margin-bottom:20px}.bi{position:static;margin:0;width:auto;animation:none}.bi p{position:static;transform:none;width:auto;opacity:1;margin-top:8px;background:none;border:0;padding:0}.bigleaf{display:none}.ic{width:96px;height:96px}.bi h3{font-size:1.5rem}}
+.whyh{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.whyh .lead{margin:0 0 12px;max-width:24rem}
+.why{grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1px solid var(--line)}
+.w{border-top:0;border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:46px 48px}
+.w:nth-child(3n){border-right:0}.w small{font-style:italic;font-size:1.1rem}
+@media(max-width:900px){.why{grid-template-columns:1fr}.w{border-right:0;padding:34px 8px}}
 @keyframes float-slow{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(.6deg)}}
 @keyframes drift{0%{transform:translate3d(0,0,0);opacity:0}15%{opacity:.9}100%{transform:translate3d(30px,-220px,0);opacity:0}}
-@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(3deg)}}
+@keyframes sway{0%,100%{transform:rotate(calc(var(--rot,0deg) - 2deg))}50%{transform:rotate(calc(var(--rot,0deg) + 3deg))}}
 @keyframes breathe{0%,100%{transform:scale(1.04)}50%{transform:scale(1.065)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes kenburns{0%{transform:scale(1.05)}100%{transform:scale(1.14) translate3d(-2%,-1%,0)}}
@@ -155,7 +188,7 @@ footer b{display:block;color:var(--gold);font-size:11px;letter-spacing:.3em;text
 <symbol id="lf" viewBox="0 0 100 160"><path d="M50 0C90 40 100 100 50 160C0 100 10 40 50 0Z" fill="currentColor"/><path d="M50 10V150" stroke="rgba(0,0,0,.25)" stroke-width="2"/></symbol>
 <symbol id="sp" viewBox="0 0 24 24"><path d="M12 22C6 18 4 11 12 2c8 9 6 16 0 20Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 22V9" stroke="currentColor" stroke-width="1.5"/></symbol></defs></svg>
 
-<nav id="nav"><div class="wrap"><a href="#home" class="logo"><span>J</span>JAZ Herbal World</a>
+<nav id="nav"><div class="wrap"><a href="#home" class="logo"><span>J</span><b>JAZ<small>Herbal World</small></b></a>
 <div class="links" id="links"><a href="#home">Home</a><a href="#story">Our Story</a><a href="#benefits">Benefits</a><a href="#herbs">Ingredients</a><a href="#how">How It Works</a><a href="#reviews">Reviews</a><a href="#product">Shop</a></div>
 <div class="navr"><a class="btn-gold" href="#order"><span>Shop Now</span></a><button id="mb" aria-label="Menu" aria-expanded="false">☰</button></div></div></nav>
 
@@ -163,11 +196,14 @@ footer b{display:block;color:var(--gold);font-size:11px;letter-spacing:.3em;text
 <div class="layer hero-base parallax" style="--depth:-8"></div>
 <div class="layer hero-reveal parallax" id="rev" style="--depth:-8"></div>
 <div class="layer hero-glow" id="glow"></div><div class="layer hero-shade"></div><div class="dust" id="dust"></div>
-<div class="wrap hero-in"><div class="parallax" style="--depth:6;max-width:640px">
-<p class="eyebrow">JAZ Herbal World</p>
-<h1 class="display">Nature's <i>Secret</i> for Beautiful, <i>Healthy</i> Hair.</h1>
+<svg class="leaf" style="left:-70px;bottom:-60px;width:280px;height:448px;color:#163326;opacity:.75;--rot:12deg;z-index:4"><use href="#lf"/></svg>
+<svg class="leaf" style="right:-80px;top:70px;width:230px;height:368px;color:#2D4F3C;opacity:.5;--rot:-140deg;z-index:4"><use href="#lf"/></svg>
+<svg class="leaf" style="right:7%;bottom:-130px;width:210px;height:336px;color:#0F2419;opacity:.85;--rot:8deg;z-index:4"><use href="#lf"/></svg>
+<div class="wrap hero-in"><div class="parallax" style="--depth:6;max-width:700px">
+<p class="eyebrow ln">JAZ Herbal World</p>
+<h1 class="display">Nature's Secret<br>for <i>Beautiful,</i><br><i>Healthy Hair.</i></h1>
 <p class="lead">A 100% natural hair oil crafted from a blend of 25+ traditional herbs to care for your scalp and hair. No chemicals. No side effects.</p>
-<div class="cta-row"><a class="btn-ghost" href="#product">Explore the Oil</a><a class="btn-gold" href="#order"><span>Shop Now →</span></a></div>
+<div class="cta-row"><a class="btn-gold" href="#product"><span>Explore the Oil →</span></a><a class="btn-ghost" href="#order">Shop Now</a></div>
 <div class="stats"><div><strong>25+</strong><span>Herbs</span></div><div><strong>45</strong><span>Days to results</span></div><div><strong>0</strong><span>Chemicals</span></div></div>
 </div></div>
 <p class="hint">Move to reveal the world of herbs</p></section>
@@ -180,18 +216,16 @@ footer b{display:block;color:var(--gold);font-size:11px;letter-spacing:.3em;text
 <div class="frame" id="frame"><div id="fimg"><img loading="lazy" src="hairStory.jpg" alt="Woman with long, flowing black hair in warm golden light"></div></div>
 </div></section>
 
-<section class="sec" id="benefits"><div class="wrap">
-<p class="eyebrow rv">7 benefits · one oil</p><h2 class="display rv">Powered by <i>nature.</i></h2>
-<p class="lead rv">Hover each botanical to discover what our 25+ herb blend is made to do.</p>
-<div class="bgrid">
-<div class="b rv"><svg><use href="#sp"/></svg><h3>New Hair Growth</h3><p>Promotes new hair growth and helps repair split ends.</p></div>
-<div class="b rv"><svg><use href="#sp"/></svg><h3>Dandruff &amp; Lice Free</h3><p>Fights dandruff, lice and scalp itch.</p></div>
-<div class="b rv"><svg><use href="#sp"/></svg><h3>Controls Hairfall</h3><p>Helps reduce and control excessive hair fall from the roots.</p></div>
-<div class="b rv"><svg><use href="#sp"/></svg><h3>Repairs Split Ends</h3><p>Nourishes damaged, split hair ends.</p></div>
-<div class="b rv"><svg><use href="#sp"/></svg><h3>Prevents Greying</h3><p>Helps delay premature greying of hair.</p></div>
-<div class="b rv"><svg><use href="#sp"/></svg><h3>Boosts Volume</h3><p>Adds volume and a natural shine.</p></div>
-<div class="b rv"><svg><use href="#sp"/></svg><h3>Strengthens Roots</h3><p>Strengthens follicles and roots from deep within.</p></div>
-</div></div></section>
+<section class="bot-sec" id="benefits"><svg class="bigleaf" viewBox="0 0 100 160"><path d="M50 0C90 40 100 100 50 160C0 100 10 40 50 0Z" fill="currentColor"/><path d="M50 6V158M50 40L22 62M50 40l28 22M50 78L16 104M50 78l34 26" stroke="rgba(10,26,20,.5)" stroke-width="1" fill="none"/></svg>
+<div class="bot"><div class="bc"><p class="eyebrow">7 benefits · one oil</p><h2 class="display">Powered by <i>nature.</i></h2><p class="lead">Hover each botanical to discover what our 25+ herb blend is made to do.</p></div>
+<div class="bi" tabindex="0" style="left:19%;top:17%;animation-delay:-0s"><span class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></span><h3>New Hair Growth</h3><p>Promotes new hair growth and helps repair split ends.</p></div>
+<div class="bi" tabindex="0" style="left:49%;top:9%;animation-delay:-2s"><span class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Dandruff &amp; Lice Free</h3><p>Fights dandruff, lice and scalp itch.</p></div>
+<div class="bi" tabindex="0" style="left:84%;top:18%;animation-delay:-4s"><span class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span><h3>Controls Hairfall</h3><p>Helps reduce and control excessive hair fall from the roots.</p></div>
+<div class="bi" tabindex="0" style="left:15%;top:60%;animation-delay:-6s"><span class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg></span><h3>Repairs Split Ends</h3><p>Nourishes damaged, split hair ends.</p></div>
+<div class="bi" tabindex="0" style="left:88%;top:62%;animation-delay:-8s"><span class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span><h3>Prevents Greying</h3><p>Helps delay premature greying of hair.</p></div>
+<div class="bi" tabindex="0" style="left:35%;top:79%;animation-delay:-10s"><span class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.6 5.6 1.9-5.6 1.9L12 18l-1.9-5.6-5.6-1.9 5.6-1.9z"/><path d="M19 3v4M17 5h4"/></svg></span><h3>Boosts Volume</h3><p>Adds volume and a natural shine.</p></div>
+<div class="bi" tabindex="0" style="left:68%;top:78%;animation-delay:-12s"><span class="ic"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></svg></span><h3>Strengthens Roots</h3><p>Strengthens follicles and roots from deep within.</p></div>
+</div></section>
 
 <section class="sec herbs" id="herbs"><div class="wrap grid2">
 <div><p class="eyebrow rv">Ingredients</p><h2 class="display rv">25+ herbs. <i>One</i> hair ritual.</h2>
@@ -205,8 +239,8 @@ footer b{display:block;color:var(--gold);font-size:11px;letter-spacing:.3em;text
 <div class="wrap"><p class="eyebrow rv">A ritual, not a routine</p><h2 class="display rv">Made for every <i>Indian household.</i></h2>
 <p class="lead rv" style="max-width:32rem">Thousands of happy customers across Tamil Nadu and India have made JAZ part of their family's hair care.</p></div></section>
 
-<section class="sec"><div class="wrap"><p class="eyebrow rv">Why people choose JAZ</p><h2 class="display rv">The JAZ <i>difference.</i></h2>
-<p class="lead rv">We don't just sell oil — we deliver a natural hair care experience you can trust.</p>
+<section class="sec"><div class="wrap"><div class="whyh"><div><p class="eyebrow rv">Why people choose JAZ</p><h2 class="display rv">The JAZ <i>difference.</i></h2></div>
+<p class="lead rv">We don't just sell oil — we deliver a natural hair care experience you can trust.</p></div>
 <div class="why">
 <div class="w rv"><small>01</small><h3>100% Natural &amp; Pure</h3><p>Zero chemicals, zero preservatives. Only pure herbs sourced directly from nature.</p></div>
 <div class="w rv"><small>02</small><h3>Siddha &amp; Ayurvedic</h3><p>A formula rooted in ancient Siddha and Ayurvedic wisdom — time-tested for generations.</p></div>
@@ -267,15 +301,15 @@ footer b{display:block;color:var(--gold);font-size:11px;letter-spacing:.3em;text
 </div></div></section>
 
 <section class="final"><div class="kb"><img loading="lazy" src="finalCta.jpg" alt=""></div>
-<svg class="leaf" style="left:-40px;bottom:0;width:160px;height:256px;color:#163326;opacity:.7;transform:rotate(12deg)"><use href="#lf"/></svg>
-<svg class="leaf" style="right:-32px;top:40px;width:128px;height:205px;color:#2D4F3C;opacity:.6;transform:rotate(-140deg)"><use href="#lf"/></svg>
+<svg class="leaf" style="left:-40px;bottom:0;width:160px;height:256px;color:#163326;opacity:.7;--rot:12deg"><use href="#lf"/></svg>
+<svg class="leaf" style="right:-32px;top:40px;width:128px;height:205px;color:#2D4F3C;opacity:.6;--rot:-140deg"><use href="#lf"/></svg>
 <div class="wrap"><div class="fa"><img loading="lazy" src="120ml.jpeg" alt="JAZ Herbal Hair Oil bottle"></div>
 <h2 class="display">Bring nature back to your <i>hair ritual.</i></h2>
 <a class="btn-gold" href="#product"><span>Shop JAZ Herbal Hair Oil →</span></a></div></section>
 
 <div class="bar">Free delivery above ₹500 · Cash on delivery available</div>
 <footer><div class="wrap">
-<div><a href="#home" class="logo" style="color:var(--cream);margin-bottom:14px"><span>J</span>JAZ Herbal World</a>100% natural herbal hair oil made from 25+ traditional herbs. Delivering across Tamil Nadu and India.</div>
+<div><a href="#home" class="logo" style="color:var(--cream);margin-bottom:14px"><span>J</span><b>JAZ<small>Herbal World</small></b></a>100% natural herbal hair oil made from 25+ traditional herbs. Delivering across Tamil Nadu and India.</div>
 <div><b>Explore</b><a href="#story">Our Story</a><br><a href="#benefits">Benefits</a><br><a href="#herbs">Ingredients</a><br><a href="#how">How It Works</a><br><a href="#reviews">Reviews</a><br><a href="#product">Shop</a></div>
 <div><b>Get in touch</b><a href="https://wa.me/919360762925">+91 93607 62925</a><br><a href="https://instagram.com/JAZ_HERBALWORLD">@JAZ_HERBALWORLD</a><br>Mon–Sat · 9AM – 7PM</div>
 </div><div class="wrap" style="display:block;margin-top:40px;font-size:13px">© 2026 JAZ Herbal World. All rights reserved.</div></footer>
@@ -347,6 +381,11 @@ document.querySelectorAll('#sizes button').forEach(function(b){b.onclick=functio
 $('f').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(e.target);
  var m='New order - JAZ Herbal World\nName: '+d.get('n')+'\nPhone: '+d.get('p')+'\nProduct: '+d.get('s')+'\nQuantity: '+d.get('q')+'\nPayment: '+d.get('m')+'\nAddress: '+d.get('a')+(d.get('t')?'\nNotes: '+d.get('t'):'');
  window.open('https://wa.me/919360762925?text='+encodeURIComponent(m),'_blank')});
+
+(function(){var ids=['home','story','benefits','herbs','how','reviews','product'],ls=document.querySelectorAll('#links a');
+function spy(){var cur='home';ids.forEach(function(id){var e=$(id);if(e&&e.getBoundingClientRect().top<=140)cur=id});
+ls.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+cur)})}
+addEventListener('scroll',spy,{passive:true});spy()})();
 </script>
 </body>
 </html>
